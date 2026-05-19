@@ -33,6 +33,9 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-4">
+      {/* honeypot — bots preenchem, humanos não */}
+      <input type="text" name="_gotcha" tabIndex={-1} aria-hidden className="hidden" />
+
       <Field label="Nome *" error={errors.name?.message}>
         <input
           {...register('name')}
