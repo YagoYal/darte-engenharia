@@ -11,25 +11,9 @@ import iconInspecao    from '@/assets/images/icon-inspecao-predial.png'
 import iconConsultoria from '@/assets/images/icon-consultoria-reforma.png'
 import iconOrcamento   from '@/assets/images/icon-orcamento-obra.png'
 import iconRegulariza  from '@/assets/images/icon-regularizacao-imoveis.png'
-import {
-  IconVistoriaImoveis,
-  IconAcompanhamentoObras,
-  IconInspecaoPredial,
-  IconConsultoriaReforma,
-  IconOrcamentoObra,
-  IconRegularizacaoImoveis,
-} from '@/assets/icons/serviceIcons'
-
-/* PNG — cards fechados (fundo claro) */
 const PNG_ICONS = [
   iconVistoria, iconAcompanha, iconInspecao,
   iconConsultoria, iconOrcamento, iconRegulariza,
-]
-
-/* SVG — card expandido (fundo navy, herda text-white) */
-const SVG_ICONS = [
-  IconVistoriaImoveis, IconAcompanhamentoObras, IconInspecaoPredial,
-  IconConsultoriaReforma, IconOrcamentoObra, IconRegularizacaoImoveis,
 ]
 
 const WA_MSG = (title: string) =>
@@ -78,7 +62,7 @@ export function Services() {
           <AnimatePresence mode="popLayout">
             {selected && (() => {
               const idx = SERVICES.findIndex(s => s.id === selected.id)
-              const SvgIcon = SVG_ICONS[idx]
+              const PngIconExp = PNG_ICONS[idx]
               return (
                 <motion.article
                   key={`${selected.id}-expanded`}
@@ -103,8 +87,8 @@ export function Services() {
 
                     <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-start">
                       <div className="flex flex-col gap-4">
-                        <div className="w-14 h-14 flex-shrink-0 text-white/70">
-                          <SvgIcon className="w-full h-full" />
+                        <div className="w-14 h-14 flex-shrink-0 rounded-xl bg-white/10 p-1.5">
+                          <img src={PngIconExp} alt="" className="w-full h-full object-contain brightness-[1.05]" />
                         </div>
                         <div>
                           <h3 className="font-display text-white text-[1.6rem] lg:text-[2rem] font-normal leading-[1.2] max-w-[280px]">
