@@ -183,7 +183,7 @@ export function Services() {
                                transition-transform duration-[320ms] ease-spring group-hover:-translate-y-1"
                     aria-hidden
                   >
-                    <img src={Icon} alt="" className="w-full h-full object-contain" style={{ mixBlendMode: 'multiply' }} />
+                    <img src={Icon} alt="" className="w-full h-full object-contain brightness-[1.05] group-hover:brightness-100 transition-[filter] duration-300" />
                   </div>
 
                   <div className="flex-1 min-w-0">
