@@ -74,16 +74,6 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* CTA desktop */}
-          <a
-            href="https://wa.me/5527999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
-            target="_blank" rel="noopener noreferrer"
-            className="hidden md:inline-flex btn-navy"
-          >
-            {WA_ICON}
-            Falar no WhatsApp
-          </a>
-
           {/* Hamburger mobile */}
           <button
             onClick={() => setMenuOpen(v => !v)}
