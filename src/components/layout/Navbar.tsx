@@ -6,10 +6,10 @@ import { scrollTo } from '@/hooks/useLenis'
 import logoImg from '@/assets/images/a7962e9d-75c5-4131-9087-7d1a78e0ec6f.jpg'
 
 const NAV_LINKS = [
-  { label: 'Início',   href: '#inicio' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Sobre',    href: '#sobre' },
-  { label: 'Contato',  href: '#contato' },
+  { label: 'Início',      href: '#inicio' },
+  { label: 'Serviços',    href: '#servicos' },
+  { label: 'Experiência', href: '#experiencia' },
+  { label: 'Contato',     href: '#contato' },
 ]
 
 const WA_ICON = (

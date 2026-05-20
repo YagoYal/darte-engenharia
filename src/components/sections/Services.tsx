@@ -6,17 +6,21 @@ import { useRef } from 'react'
 import { fadeUp, staggerContainer } from '@/animations/variants'
 import { SERVICES, CONTACT } from '@/data/services'
 import {
-  IconVistoriaImoveis, IconLaudoTecnico, IconVistoriaEntrega,
-  IconConsultoriaReforma, IconAcompanhamentoObras, IconInspecaoPredial,
+  IconVistoriaImoveis,
+  IconAcompanhamentoObras,
+  IconInspecaoPredial,
+  IconConsultoriaReforma,
+  IconOrcamentoObra,
+  IconRegularizacaoImoveis,
 } from '@/assets/icons/serviceIcons'
 
 const ICONS = [
   IconVistoriaImoveis,
-  IconLaudoTecnico,
-  IconVistoriaEntrega,
-  IconConsultoriaReforma,
   IconAcompanhamentoObras,
   IconInspecaoPredial,
+  IconConsultoriaReforma,
+  IconOrcamentoObra,
+  IconRegularizacaoImoveis,
 ]
 
 const WA_MSG = (title: string) =>
@@ -32,7 +36,6 @@ export function Services() {
 
   const close = useCallback(() => setSelectedId(null), [])
 
-  /* fechar com Escape */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
     window.addEventListener('keydown', handler)
@@ -45,19 +48,12 @@ export function Services() {
 
         {/* Cabeçalho */}
         <header className="text-center mb-11" ref={ref}>
-          <motion.span
-            className="label-tag inline-block"
-            variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'}
-          >
-            Nossos Serviços
-          </motion.span>
           <motion.h2
             id="services-title"
             className="section-title mt-1"
             variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'}
-            transition={{ delay: 0.1 }}
           >
-            Soluções técnicas para<br />seu imóvel e sua obra
+            Soluções técnicas e serviços
           </motion.h2>
         </header>
 
@@ -69,7 +65,7 @@ export function Services() {
           animate={inView ? 'visible' : 'hidden'}
           role="list"
         >
-          {/* Card expandido — sempre renderizado primeiro quando ativo */}
+          {/* Card expandido */}
           <AnimatePresence mode="popLayout">
             {selected && (() => {
               const Icon = ICONS[SERVICES.findIndex(s => s.id === selected.id)]
@@ -87,7 +83,6 @@ export function Services() {
                   aria-expanded="true"
                 >
                   <div className="p-8 lg:p-10">
-                    {/* Fechar */}
                     <button
                       onClick={close}
                       className="absolute top-5 right-5 text-white/40 hover:text-white transition-colors duration-200 p-1"
@@ -97,8 +92,6 @@ export function Services() {
                     </button>
 
                     <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-start">
-
-                      {/* Ícone + Título */}
                       <div className="flex flex-col gap-4">
                         <div className="text-white/70 w-14 h-14">
                           <Icon className="w-full h-full" />
@@ -111,7 +104,6 @@ export function Services() {
                         </div>
                       </div>
 
-                      {/* Detalhes */}
                       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-start">
                         <div>
                           <p className="text-white/70 text-[0.9rem] leading-[1.85] mb-6">
@@ -127,7 +119,6 @@ export function Services() {
                           </ul>
                         </div>
 
-                        {/* CTA */}
                         <div className="flex flex-col gap-3 lg:min-w-[200px]">
                           <a
                             href={WA_MSG(selected.title)}
@@ -165,8 +156,8 @@ export function Services() {
                 variants={fadeUp}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setSelectedId(svc.id)}
-                className="group bg-white relative overflow-hidden flex flex-col gap-[0.65rem]
-                           p-[2.1rem_1.9rem_1.85rem] cursor-pointer select-none
+                className="group bg-white relative overflow-hidden
+                           p-[1.8rem_1.9rem_1.85rem] cursor-pointer select-none
                            transition-colors duration-300 hover:bg-[#FAF7F2]"
                 style={{ opacity: isOther ? 0.7 : 1 }}
                 role="listitem button"
@@ -187,33 +178,34 @@ export function Services() {
                   aria-hidden
                 />
 
-                {/* Ícone */}
-                <div
-                  className="w-[46px] h-[46px] text-navy flex-shrink-0
-                             transition-transform duration-[320ms] ease-spring group-hover:-translate-y-1"
-                  aria-hidden
-                >
-                  <Icon className="w-full h-full" />
+                {/* Layout: ícone + título + "+" na mesma linha, descrição abaixo */}
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-[46px] h-[46px] text-navy flex-shrink-0
+                               transition-transform duration-[320ms] ease-spring group-hover:-translate-y-1"
+                    aria-hidden
+                  >
+                    <Icon className="w-full h-full" />
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="font-display text-[1.05rem] font-medium text-navy leading-[1.3]">
+                        {svc.title}
+                      </h3>
+                      <span
+                        className="text-navy text-[1.3rem] leading-none flex-shrink-0 mt-0.5
+                                   transition-transform duration-300 group-hover:rotate-45 group-hover:text-gold"
+                        aria-hidden
+                      >
+                        +
+                      </span>
+                    </div>
+                    <p className="text-[0.8rem] text-muted leading-[1.75] mt-2">
+                      {svc.description}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Título */}
-                <h3 className="font-display text-[1.08rem] font-medium text-navy leading-[1.3] mt-1">
-                  {svc.title}
-                </h3>
-
-                {/* Descrição */}
-                <p className="text-[0.8rem] text-muted leading-[1.75] flex-1">
-                  {svc.description}
-                </p>
-
-                {/* Seta */}
-                <span
-                  className="inline-flex items-center text-[0.88rem] text-navy mt-1
-                             transition-[letter-spacing] duration-300 ease-out-expo group-hover:tracking-[0.06em] group-hover:text-gold-dark"
-                  aria-hidden
-                >
-                  →
-                </span>
               </motion.article>
             )
           })}

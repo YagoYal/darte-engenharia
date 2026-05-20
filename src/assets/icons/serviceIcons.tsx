@@ -1,4 +1,4 @@
-/* Ícones fiéis ao sprite c9ab5224 — todos 46×46 viewBox */
+/* Ícones dos serviços — viewBox 46×46 */
 
 export function IconVistoriaImoveis(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -17,38 +17,34 @@ export function IconVistoriaImoveis(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
-export function IconLaudoTecnico(props: React.SVGProps<SVGSVGElement>) {
+export function IconAcompanhamentoObras(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M10 6h18l8 8v26H10V6z"/>
-      <polyline points="28,6 28,14 36,14"/>
-      <line x1="14" y1="20" x2="32" y2="20"/>
-      <line x1="14" y1="25" x2="32" y2="25"/>
-      <line x1="14" y1="30" x2="24" y2="30"/>
-      <path d="M26 32 C26 32 22 30 22 26 V23l4-1.5 4 1.5V26 C30 30 26 32 26 32z"/>
-      <polyline points="24,26 25.5,27.5 28,24.5"/>
+      <path d="M19 13 C21 10 25 10 27 13"/>
+      <path d="M14 14.5 L14 9 Q14 7 16 7 L30 7 Q32 7 32 9 L32 14.5"/>
+      <rect x="9" y="14" width="28" height="6" rx="2"/>
+      <path d="M14 20 L14 38"/>
+      <path d="M32 20 L32 38"/>
+      <rect x="9" y="34" width="28" height="7" rx="2"/>
+      <line x1="18" y1="27" x2="28" y2="27"/>
+      <line x1="18" y1="30" x2="25" y2="30"/>
     </svg>
   )
 }
 
-export function IconVistoriaEntrega(props: React.SVGProps<SVGSVGElement>) {
+export function IconInspecaoPredial(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <rect x="4" y="10" width="18" height="30" rx="1"/>
-      <rect x="7"  y="13" width="4" height="4" rx=".5"/>
-      <rect x="13" y="13" width="4" height="4" rx=".5"/>
-      <rect x="7"  y="20" width="4" height="4" rx=".5"/>
-      <rect x="13" y="20" width="4" height="4" rx=".5"/>
-      <rect x="7"  y="27" width="4" height="4" rx=".5"/>
-      <rect x="13" y="27" width="4" height="4" rx=".5"/>
-      <rect x="9"  y="34" width="4" height="6" rx=".5"/>
-      <rect x="23" y="18" width="14" height="22" rx="1"/>
-      <rect x="26" y="21" width="3.5" height="3.5" rx=".5"/>
-      <rect x="31" y="21" width="3.5" height="3.5" rx=".5"/>
-      <rect x="26" y="27" width="3.5" height="3.5" rx=".5"/>
-      <rect x="31" y="27" width="3.5" height="3.5" rx=".5"/>
-      <circle cx="34" cy="35" r="7"/>
-      <polyline points="31,35 33,37 37,32"/>
+      <rect x="4" y="12" width="24" height="30" rx="1"/>
+      <rect x="7"  y="15" width="5" height="4" rx=".5"/>
+      <rect x="15" y="15" width="5" height="4" rx=".5"/>
+      <rect x="7"  y="22" width="5" height="4" rx=".5"/>
+      <rect x="15" y="22" width="5" height="4" rx=".5"/>
+      <rect x="11" y="34" width="5" height="8" rx=".5"/>
+      <rect x="8"  y="8"  width="6" height="4" rx=".5"/>
+      <rect x="18" y="8"  width="6" height="4" rx=".5"/>
+      <circle cx="33" cy="28" r="9"/>
+      <polyline points="29,28 31.5,30.5 37,25"/>
     </svg>
   )
 }
@@ -75,38 +71,31 @@ export function IconConsultoriaReforma(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
-export function IconAcompanhamentoObras(props: React.SVGProps<SVGSVGElement>) {
+export function IconOrcamentoObra(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M8 24 C8 14 38 14 38 24"/>
-      <path d="M5 24 H41" strokeWidth="2"/>
-      <path d="M16 14.5 C14 18 14 22 14 24"/>
-      <path d="M23 13 C23 17 23 21 23 24"/>
-      <path d="M30 14.5 C32 18 32 22 32 24"/>
-      <path d="M19 13 C21 10 25 10 27 13"/>
-      <rect x="9" y="30" width="28" height="10" rx="5"/>
-      <line x1="16" y1="30" x2="16" y2="40"/>
-      <line x1="30" y1="30" x2="30" y2="40"/>
-      <line x1="19" y1="33" x2="27" y2="33"/>
-      <line x1="19" y1="37" x2="25" y2="37"/>
+      <path d="M10 6h18l8 8v26H10V6z"/>
+      <polyline points="28,6 28,14 36,14"/>
+      <line x1="14" y1="20" x2="26" y2="20"/>
+      <line x1="14" y1="25" x2="22" y2="25"/>
+      <circle cx="32" cy="33" r="7"/>
+      <line x1="32" y1="29" x2="32" y2="31"/>
+      <line x1="32" y1="35" x2="32" y2="37"/>
+      <path d="M29.5 31 Q29.5 29.5 32 29.5 Q34.5 29.5 34.5 31.5 Q34.5 33 32 33.5 Q29.5 34 29.5 36 Q29.5 37.5 32 37.5 Q34.5 37.5 34.5 36"/>
     </svg>
   )
 }
 
-export function IconInspecaoPredial(props: React.SVGProps<SVGSVGElement>) {
+export function IconRegularizacaoImoveis(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <rect x="4" y="12" width="24" height="30" rx="1"/>
-      <rect x="7"  y="15" width="5" height="4" rx=".5"/>
-      <rect x="15" y="15" width="5" height="4" rx=".5"/>
-      <rect x="7"  y="22" width="5" height="4" rx=".5"/>
-      <rect x="15" y="22" width="5" height="4" rx=".5"/>
-      <rect x="11" y="34" width="5" height="8" rx=".5"/>
-      <rect x="8"  y="8"  width="6" height="4" rx=".5"/>
-      <rect x="18" y="8"  width="6" height="4" rx=".5"/>
-      <circle cx="33" cy="28" r="9"/>
-      <circle cx="33" cy="28" r="5.5"/>
-      <line x1="39.5" y1="35" x2="44" y2="40"/>
+      <path d="M10 6h18l8 8v26H10V6z"/>
+      <polyline points="28,6 28,14 36,14"/>
+      <line x1="14" y1="20" x2="32" y2="20"/>
+      <line x1="14" y1="25" x2="28" y2="25"/>
+      <line x1="14" y1="30" x2="22" y2="30"/>
+      <circle cx="33" cy="35" r="7"/>
+      <polyline points="29.5,35 32,37.5 37,31.5"/>
     </svg>
   )
 }

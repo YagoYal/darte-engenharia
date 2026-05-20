@@ -1,8 +1,7 @@
 import { SEO } from '@/seo/SEO'
 import { Hero } from '@/components/sections/Hero'
 import { Services } from '@/components/sections/Services'
-import { CTA } from '@/components/sections/CTA'
-import { ContactBar } from '@/components/sections/ContactBar'
+import { Experience } from '@/components/sections/Experience'
 
 export default function Home() {
   return (
@@ -15,8 +14,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Services />
-        <CTA />
-        <ContactBar />
+        <Experience />
       </main>
     </>
   )

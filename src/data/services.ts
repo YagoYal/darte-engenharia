@@ -2,7 +2,7 @@ export const SERVICES = [
   {
     id: 'vistoria-imoveis',
     title: 'Vistoria de Imóveis',
-    description: 'Avaliação técnica para identificar problemas construtivos em imóveis residenciais e comerciais.',
+    description: 'Avaliação técnica de imóveis residenciais e comerciais.',
     detail: 'Realizamos uma inspeção minuciosa do imóvel, identificando patologias construtivas como fissuras, infiltrações, problemas elétricos e hidráulicos, vícios ocultos e desvios de norma. Ideal antes de comprar, alugar ou realizar qualquer intervenção.',
     includes: [
       'Inspeção visual completa de todas as áreas',
@@ -13,48 +13,9 @@ export const SERVICES = [
     ],
   },
   {
-    id: 'laudo-tecnico',
-    title: 'Laudo Técnico',
-    description: 'Elaboração de laudos técnicos com análise detalhada de patologias e não conformidades.',
-    detail: 'Documentos técnicos com validade jurídica, elaborados por engenheiro habilitado, descrevendo as condições da edificação, causas das anomalias e recomendações técnicas fundamentadas em normas ABNT vigentes.',
-    includes: [
-      'Análise técnica embasada em normas ABNT',
-      'Mapeamento de patologias com localização exata',
-      'Diagnóstico das causas e mecanismos de degradação',
-      'Prescrição de intervenções corretivas',
-      'Validade jurídica — ART inclusa',
-    ],
-  },
-  {
-    id: 'vistoria-entrega',
-    title: 'Vistoria de Entrega de Apartamento',
-    description: 'Inspeção completa antes do recebimento do imóvel pela construtora.',
-    detail: 'Acompanhamos você no momento mais crítico: a entrega das chaves. Verificamos cada detalhe do imóvel antes da assinatura, garantindo que a construtora corrija tudo que não está em conformidade com o contrato e com as normas técnicas.',
-    includes: [
-      'Verificação de todas as instalações elétricas e hidráulicas',
-      'Conferência de esquadrias, revestimentos e pintura',
-      'Teste de funcionamento de todos os equipamentos',
-      'Confronto com o memorial descritivo do contrato',
-      'Relatório com lista de pendências para a construtora',
-    ],
-  },
-  {
-    id: 'consultoria-reforma',
-    title: 'Consultoria para Reforma',
-    description: 'Orientação técnica para reformas e adequações, garantindo segurança, funcionalidade e economia.',
-    detail: 'Antes de iniciar qualquer obra, conte com orientação técnica especializada. Analisamos a viabilidade estrutural, verificamos a necessidade de projetos e alvarás, e orientamos a execução para evitar retrabalhos, gastos desnecessários e riscos à segurança.',
-    includes: [
-      'Análise de viabilidade estrutural da reforma',
-      'Verificação de necessidade de projetos e alvarás',
-      'Compatibilização das intervenções com a edificação existente',
-      'Orientação sobre materiais e técnicas adequadas',
-      'Acompanhamento inicial para evitar erros de execução',
-    ],
-  },
-  {
     id: 'acompanhamento-obras',
     title: 'Acompanhamento de Obras e Reformas',
-    description: 'Acompanhamento técnico da execução para garantir qualidade, prazo e conformidade.',
+    description: 'Supervisão técnica com controle de execução.',
     detail: 'Presença técnica constante ou periódica na obra para fiscalizar a execução dos serviços, garantir que os projetos estejam sendo respeitados, controlar a qualidade dos materiais aplicados e validar cada etapa antes de liberar o pagamento do empreiteiro.',
     includes: [
       'Visitas técnicas periódicas com relatório de progresso',
@@ -67,7 +28,7 @@ export const SERVICES = [
   {
     id: 'inspecao-predial',
     title: 'Inspeção Predial',
-    description: 'Análise das condições de conservação da edificação com relatório técnico e recomendações.',
+    description: 'Análise das condições de conservação e segurança.',
     detail: 'Avaliação completa das condições de conservação, manutenção e segurança de edificações, conforme a NBR 16.747. Atendemos condomínios residenciais e comerciais que precisam do laudo para fins legais, seguros ou para planejamento de manutenção preventiva.',
     includes: [
       'Inspeção conforme NBR 16.747',
@@ -77,16 +38,56 @@ export const SERVICES = [
       'Laudo com ART para fins legais e de seguro',
     ],
   },
+  {
+    id: 'consultoria-reforma',
+    title: 'Consultoria para Obras e Reformas',
+    description: 'Orientação técnica para soluções eficientes e seguras.',
+    detail: 'Antes de iniciar qualquer obra, conte com orientação técnica especializada. Analisamos a viabilidade estrutural, verificamos a necessidade de projetos e alvarás, e orientamos a execução para evitar retrabalhos, gastos desnecessários e riscos à segurança.',
+    includes: [
+      'Análise de viabilidade estrutural da reforma',
+      'Verificação de necessidade de projetos e alvarás',
+      'Compatibilização das intervenções com a edificação existente',
+      'Orientação sobre materiais e técnicas adequadas',
+      'Acompanhamento inicial para evitar erros de execução',
+    ],
+  },
+  {
+    id: 'orcamento-obra',
+    title: 'Orçamento de Obra',
+    description: 'Estimativas de custos estruturadas e assertivas.',
+    detail: 'Elaboramos orçamentos técnicos detalhados para obras e reformas, com levantamento preciso de quantitativos, especificação de materiais e composição de custos. Ideal para planejar financeiramente sua obra antes de iniciar a execução.',
+    includes: [
+      'Levantamento de quantitativos por etapa',
+      'Pesquisa e especificação de materiais',
+      'Composição de custos com BDI',
+      'Memória de cálculo detalhada',
+      'Relatório com cronograma físico-financeiro',
+    ],
+  },
+  {
+    id: 'regularizacao-imoveis',
+    title: 'Regularização de Imóveis',
+    description: 'Suporte técnico para adequação e regularização.',
+    detail: 'Prestamos assessoria técnica para regularização de imóveis junto aos órgãos competentes, incluindo emissão de ART, elaboração de projetos as built e adequação documental. Garantimos que seu imóvel esteja em conformidade com a legislação vigente.',
+    includes: [
+      'Análise da situação cadastral do imóvel',
+      'Elaboração de projetos as built',
+      'Emissão de ART/RRT',
+      'Assessoria junto à prefeitura e cartório',
+      'Acompanhamento do processo até a conclusão',
+    ],
+  },
 ] as const
 
 export type ServiceId = typeof SERVICES[number]['id']
 
 export const CONTACT = {
-  phone: '(27) 99999-9999',
-  phoneHref: 'tel:+5527999999999',
-  whatsapp: 'https://wa.me/5527999999999',
-  whatsappMsg: 'https://wa.me/5527999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento.',
-  email: 'contato@darte.eng.br',
-  region: 'Vitória e região',
-  instagram: 'https://instagram.com/darteengenharia',
+  phone: '(27) 99796-7523',
+  phoneHref: 'tel:+5527997967523',
+  whatsapp: 'https://wa.me/5527997967523',
+  whatsappMsg: 'https://wa.me/5527997967523?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento.',
+  email: 'contato@darteeng.com.br',
+  region: 'Vitória - ES',
+  instagram: 'https://instagram.com/darte.engenharia',
+  instagramHandle: '@darte.engenharia',
 } as const
