@@ -5,22 +5,20 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { fadeUp, staggerContainer } from '@/animations/variants'
 import { SERVICES, CONTACT } from '@/data/services'
-import {
-  IconVistoriaImoveis,
-  IconAcompanhamentoObras,
-  IconInspecaoPredial,
-  IconConsultoriaReforma,
-  IconOrcamentoObra,
-  IconRegularizacaoImoveis,
-} from '@/assets/icons/serviceIcons'
+import iconVistoria    from '@/assets/images/icon-vistoria-imoveis.png'
+import iconAcompanha   from '@/assets/images/icon-acompanhamento-obras.png'
+import iconInspecao    from '@/assets/images/icon-inspecao-predial.png'
+import iconConsultoria from '@/assets/images/icon-consultoria-reforma.png'
+import iconOrcamento   from '@/assets/images/icon-orcamento-obra.png'
+import iconRegulariza  from '@/assets/images/icon-regularizacao-imoveis.png'
 
 const ICONS = [
-  IconVistoriaImoveis,
-  IconAcompanhamentoObras,
-  IconInspecaoPredial,
-  IconConsultoriaReforma,
-  IconOrcamentoObra,
-  IconRegularizacaoImoveis,
+  iconVistoria,
+  iconAcompanha,
+  iconInspecao,
+  iconConsultoria,
+  iconOrcamento,
+  iconRegulariza,
 ]
 
 const WA_MSG = (title: string) =>
@@ -93,8 +91,8 @@ export function Services() {
 
                     <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-start">
                       <div className="flex flex-col gap-4">
-                        <div className="text-white/70 w-14 h-14">
-                          <Icon className="w-full h-full" />
+                        <div className="w-14 h-14 flex-shrink-0">
+                          <img src={Icon} alt="" className="w-full h-full object-contain" style={{ filter: 'brightness(0) invert(1)', opacity: 0.7 }} />
                         </div>
                         <div>
                           <h3 className="font-display text-white text-[1.6rem] lg:text-[2rem] font-normal leading-[1.2] max-w-[280px]">
@@ -181,11 +179,11 @@ export function Services() {
                 {/* Layout: ícone + título + "+" na mesma linha, descrição abaixo */}
                 <div className="flex items-start gap-4">
                   <div
-                    className="w-[46px] h-[46px] text-navy flex-shrink-0
+                    className="w-[52px] h-[52px] flex-shrink-0
                                transition-transform duration-[320ms] ease-spring group-hover:-translate-y-1"
                     aria-hidden
                   >
-                    <Icon className="w-full h-full" />
+                    <img src={Icon} alt="" className="w-full h-full object-contain" />
                   </div>
 
                   <div className="flex-1 min-w-0">
