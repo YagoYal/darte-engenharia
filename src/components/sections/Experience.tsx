@@ -92,14 +92,16 @@ export function Experience() {
     bottom:  maxDragY,
   }
 
-  // Medir container depois que o modal abrir (aguarda animação inicial ~450ms)
+  // Medir container: tenta imediatamente e confirma após a animação de entrada
   useEffect(() => {
     if (!selectedId) return
-    const t = setTimeout(() => {
+    const measure = () => {
       if (!imgContainerRef.current) return
       const { width, height } = imgContainerRef.current.getBoundingClientRect()
-      setContainerSize({ w: width, h: height })
-    }, 480)
+      if (width > 0) setContainerSize({ w: width, h: height })
+    }
+    measure()                         // leitura imediata (já disponível no DOM)
+    const t = setTimeout(measure, 480) // confirma após animação de entrada
     return () => clearTimeout(t)
   }, [selectedId])
 

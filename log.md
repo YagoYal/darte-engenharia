@@ -73,6 +73,21 @@
 - Marca visivel atual: "D'Arte Engenharia"; "Civil" removido de navbar, hero, footer e copyright.
 - Navbar desktop: CTA de WhatsApp removido; botao permanece no menu mobile.
 
+## Fase 13 - Zoom, Drag e Polimento da Galeria (2026-05-21)
+
+- Botoes de zoom (- / % / +) sobrepostos na imagem, canto inferior esquerdo.
+- Zoom range: 100% → 300% em passos de 50%.
+- Drag/pan com constraints manuais: maxDrag = containerSize * (zoom-1) / 2.
+  Corrige bug do dragConstraints={ref} que media tamanho CSS sem scale (limite zero).
+- dragElastic=0, dragMomentum=false: para exatamente na borda sem ultrapassar.
+- Drag habilitado somente quando zoomLevel > 1; cursor muda para grab/grabbing.
+- Medicao do container: tentativa imediata + confirmacao apos 480ms (pos-animacao).
+- Posicao de drag clampeada dentro dos novos limites ao mudar zoom.
+- Bug fix: centralizacao do modal no desktop (wrapper div separa posicionamento de animacao).
+- Bug fix: modal colado no topo — max-h[78vh] + imagem com maxHeight min(484px,44vh).
+- Imagens originais PNG/JPG da galeria removidas localmente (apenas WebP no projeto).
+- Validacoes: tsc -b passou; npm run build passou (zero erros, ~1.11s).
+
 ## Fase 12 - Galeria Expandida da Experiencia (2026-05-21)
 
 - `Experience.tsx` reescrito: cards agora abrem modal de galeria em vez de navegar para WhatsApp.

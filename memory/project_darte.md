@@ -69,10 +69,18 @@ Os PNGs das pastas de galeria sao grandes (~1.8-2.2 MB) e devem ser convertidos 
 - Validacoes recentes: `npx.cmd tsc -b` e `npm.cmd run build` passaram.
 - Checagem mobile headless em 390px e 320px nao encontrou overflow horizontal.
 
+## Galeria de Experiencia — Detalhes Tecnicos
+
+- Modal com backdrop, wrapper de posicionamento (div) + painel animado (motion.div).
+- Zoom 100%–300% com botoes overlay; drag/pan via constraints manuais.
+- `dragConstraints = { left: -maxX, right: maxX, top: -maxY, bottom: maxY }`
+  onde `maxX = containerW * (zoom-1) / 2`. Nao usar dragConstraints={ref} pois
+  mede tamanho CSS sem scale, resultando em limite zero.
+- Container medido por getBoundingClientRect imediatamente + setTimeout 480ms.
+- Imagens em WebP; script de conversao em `scripts/convert-gallery-webp.mjs`.
+
 ## Pendencias
 
 - Formspree: substituir `SEU_ID` em `ContactForm.tsx`.
 - Env vars reais na Vercel: `VITE_GA_ID`, `VITE_CLARITY_ID`.
-- Converter fotos de Experiencia para WebP.
-- Implementar galeria expandida da Experiencia com Framer Motion, X no canto superior direito e multiplas imagens por obra, se aprovado.
 - Migrar repo/Vercel pessoal para conta/org profissional apos aprovacao do cliente.

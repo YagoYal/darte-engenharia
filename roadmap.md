@@ -55,7 +55,8 @@ Rodar PageSpeed Insights na URL da Vercel e corrigir eventuais regressoes de LCP
 - [x] Body scroll bloqueado quando modal esta aberto.
 - [x] Responsivo: near-fullscreen no mobile, modal centrado no desktop.
 - [x] Imagens galeria organizadas nas pastas `sabor-da-terra/`, `cobertura-praia-costa/`, `area-lazer/`.
-- [ ] Converter PNGs da galeria para WebP (varios acima de 1.8 MB — urgente para Core Web Vitals).
+- [x] Converter PNGs da galeria para WebP: 15.33 MB → 1.16 MB (-92%).
+- [x] Zoom in/out (100%–300%) + drag/pan com constraints corretos na galeria.
 
 ### 5. Migracao para conta profissional
 
