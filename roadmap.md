@@ -57,6 +57,7 @@ Rodar PageSpeed Insights na URL da Vercel e corrigir eventuais regressoes de LCP
 - [x] Imagens galeria organizadas nas pastas `sabor-da-terra/`, `cobertura-praia-costa/`, `area-lazer/`.
 - [x] Converter PNGs da galeria para WebP: 15.33 MB → 1.16 MB (-92%).
 - [x] Zoom in/out (100%–300%) + drag/pan com constraints corretos na galeria.
+- [x] Fix mobile: area navy visivel abaixo do modal (wrapper flex-col + motion.div flex-1).
 
 ### 5. Migracao para conta profissional
 

@@ -73,6 +73,14 @@
 - Marca visivel atual: "D'Arte Engenharia"; "Civil" removido de navbar, hero, footer e copyright.
 - Navbar desktop: CTA de WhatsApp removido; botao permanece no menu mobile.
 
+## Fase 14 - Fix Mobile: area vazia abaixo do modal (2026-05-21)
+
+- Bug: `h-full` no motion.div resolvia para `auto` porque wrapper fixed com
+  top/bottom nao tem `height` explicito — backdrop navy aparecia abaixo do conteudo.
+- Fix: wrapper vira `flex flex-col` no mobile; motion.div usa `flex-1` para
+  preencher os 92vh. Desktop desativa via `md:block` + `md:flex-none md:h-auto`.
+- Validacoes: tsc -b passou; npm run build passou.
+
 ## Fase 13 - Zoom, Drag e Polimento da Galeria (2026-05-21)
 
 - Botoes de zoom (- / % / +) sobrepostos na imagem, canto inferior esquerdo.

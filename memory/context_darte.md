@@ -13,6 +13,7 @@ SPA React/Vite da DARTE Engenharia em `darte-app`, publicada via GitHub/Vercel. 
   - Responsivo: near-fullscreen mobile, modal centrado (min(860px,92vw)) desktop.
   - Bug fix: wrapper div separa posicionamento CSS do motion.div (transforms conflitavam).
   - Bug fix: max-h[78vh] + imagem com maxHeight min(484px,44vh) para distancia do topo.
+  - Bug fix mobile: area navy abaixo do modal — wrapper flex-col + motion.div flex-1.
   - Zoom 100%–300% (steps 50%) com botoes - / % / + sobrepostos na imagem.
   - Drag/pan: constraints manuais baseados em containerSize * (zoom-1) / 2.
     Corrige bug do dragConstraints={ref} que via tamanho CSS sem scale.
