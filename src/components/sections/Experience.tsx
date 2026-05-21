@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
   },
 ]
 
-const ZOOM_MIN  = 0.5
+const ZOOM_MIN  = 1
 const ZOOM_MAX  = 3
 const ZOOM_STEP = 0.5
 
@@ -65,18 +65,51 @@ export function Experience() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-8% 0px' })
 
-  const [selectedId, setSelectedId]   = useState<string | null>(null)
-  const [activeIdx, setActiveIdx]     = useState(0)
-  const [zoomLevel, setZoomLevel]     = useState(1)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [activeIdx, setActiveIdx]   = useState(0)
+  const [zoomLevel, setZoomLevel]   = useState(1)
 
-  // Motion values for drag position (compartilhados entre renders, reset explícito)
+  // Drag position (motion values para não forçar re-render a cada frame)
   const dragX = useMotionValue(0)
   const dragY = useMotionValue(0)
 
-  // Ref da área da imagem — usado como constraint de drag
+  // Tamanho real do container medido após o modal abrir
   const imgContainerRef = useRef<HTMLDivElement>(null)
+  const [containerSize, setContainerSize] = useState({ w: 0, h: 0 })
 
   const selectedProject = PROJECTS.find(p => p.id === selectedId) ?? null
+
+  // dragConstraints calculado manualmente porque dragConstraints={ref} usa o
+  // tamanho CSS do elemento (sem scale), resultando em limite quase zero.
+  // Com o tamanho real do container e o zoomLevel, calculamos o quanto a
+  // imagem pode se deslocar para cada lado: (containerSize * (zoom-1)) / 2
+  const maxDragX = containerSize.w * (zoomLevel - 1) / 2
+  const maxDragY = containerSize.h * (zoomLevel - 1) / 2
+  const dragConstraints = {
+    left:   -maxDragX,
+    right:   maxDragX,
+    top:    -maxDragY,
+    bottom:  maxDragY,
+  }
+
+  // Medir container depois que o modal abrir (aguarda animação inicial ~450ms)
+  useEffect(() => {
+    if (!selectedId) return
+    const t = setTimeout(() => {
+      if (!imgContainerRef.current) return
+      const { width, height } = imgContainerRef.current.getBoundingClientRect()
+      setContainerSize({ w: width, h: height })
+    }, 480)
+    return () => clearTimeout(t)
+  }, [selectedId])
+
+  // Ao mudar zoom, clampear a posição atual dentro dos novos limites
+  useEffect(() => {
+    const newMaxX = containerSize.w * (zoomLevel - 1) / 2
+    const newMaxY = containerSize.h * (zoomLevel - 1) / 2
+    dragX.set(Math.max(-newMaxX, Math.min(newMaxX, dragX.get())))
+    dragY.set(Math.max(-newMaxY, Math.min(newMaxY, dragY.get())))
+  }, [zoomLevel, containerSize, dragX, dragY])
 
   const resetView = useCallback(() => {
     setZoomLevel(1)
@@ -88,6 +121,7 @@ export function Experience() {
     setSelectedId(id)
     setActiveIdx(0)
     resetView()
+    setContainerSize({ w: 0, h: 0 })
   }, [resetView])
 
   const close = useCallback(() => {
@@ -231,22 +265,23 @@ export function Experience() {
                   style={{ aspectRatio: '16/9', maxHeight: 'min(484px, 44vh)' }}
                 >
                   {/*
-                    Camada única persistente: controla drag (x,y) + zoom (scale).
-                    Fica fora do AnimatePresence para não ser recriada ao trocar imagem,
-                    evitando que dragX/dragY sejam resetados pelo unmount.
-                    O AnimatePresence interno cuida apenas do crossfade (opacity).
+                    Camada de drag+scale (persistente, fora do AnimatePresence).
+                    dragConstraints calculado manualmente:
+                      maxDrag = containerSize * (zoom - 1) / 2
+                    Isso garante que o usuário pode arrastar a imagem em toda
+                    a extensão que ficou fora do container com o zoom aplicado.
                   */}
                   <motion.div
-                    drag
-                    dragConstraints={imgContainerRef}
-                    dragElastic={0.06}
+                    drag={zoomLevel > 1}
+                    dragConstraints={dragConstraints}
+                    dragElastic={0}
                     dragMomentum={false}
                     style={{ x: dragX, y: dragY }}
                     animate={{ scale: zoomLevel }}
                     transition={{ scale: { duration: 0.22, ease: [0.16, 1, 0.3, 1] } }}
                     className={[
                       'absolute inset-0 origin-center',
-                      zoomLevel !== 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-default',
+                      zoomLevel > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-default',
                     ].join(' ')}
                   >
                     <AnimatePresence mode="wait">
@@ -265,7 +300,7 @@ export function Experience() {
                   </motion.div>
 
                   {/* Zoom controls — canto inferior esquerdo */}
-                  <div className="absolute bottom-3 left-3 z-10 flex items-center gap-1 pointer-events-auto">
+                  <div className="absolute bottom-3 left-3 z-10 flex items-center gap-1">
                     <button
                       onClick={zoomOut}
                       disabled={zoomLevel <= ZOOM_MIN}
