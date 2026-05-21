@@ -199,7 +199,7 @@ export function Experience() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 32, scale: 0.97 }}
               transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
-              className="h-full md:max-h-[88vh] overflow-y-auto rounded-[12px] bg-white"
+              className="h-full md:h-auto md:max-h-[78vh] overflow-y-auto rounded-[12px] bg-white"
             >
               {/* Modal header */}
               <div className="sticky top-0 z-10 flex items-center justify-between px-5 py-4 bg-navy">
@@ -216,7 +216,7 @@ export function Experience() {
               </div>
 
               {/* Main image */}
-              <div className="relative bg-sand w-full" style={{ aspectRatio: '16/9' }}>
+              <div className="relative bg-sand w-full" style={{ aspectRatio: '16/9', maxHeight: 'min(484px, 44vh)' }}>
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeIdx}
