@@ -227,11 +227,14 @@ export function Experience() {
               aria-hidden
             />
 
-            {/* Positioning wrapper */}
+            {/* Positioning wrapper
+                Mobile: flex-col para que o motion.div (flex-1) preencha os
+                92vh definidos pelos insets — evita área dark do backdrop abaixo.
+                Desktop (md:block): volta ao fluxo normal; altura vira auto. */}
             <div className={[
-              'fixed z-50',
+              'fixed z-50 flex flex-col',
               'inset-x-3 top-[4vh] bottom-[4vh]',
-              'md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2',
+              'md:block md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2',
               'md:w-[min(860px,92vw)]',
             ].join(' ')}>
 
@@ -244,7 +247,7 @@ export function Experience() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 32, scale: 0.97 }}
                 transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
-                className="h-full md:h-auto md:max-h-[78vh] overflow-y-auto rounded-[12px] bg-white"
+                className="flex-1 overflow-y-auto rounded-[12px] bg-white md:flex-none md:h-auto md:max-h-[78vh]"
               >
                 {/* Modal header */}
                 <div className="sticky top-0 z-10 flex items-center justify-between px-5 py-4 bg-navy">
